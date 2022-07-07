@@ -1,6 +1,7 @@
-# rails-blog-app
+# rails-blog-app : processing data in models
 >This is a project on Ruby on Rails framework using ruby Gems as a software packages system
-and use database migration files to maintain database schema.
+and Set up associations between models using
+using SQL queries with Active Record.
 
 ## prerequisites
 ``` 
