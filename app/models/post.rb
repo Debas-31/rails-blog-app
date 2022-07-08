@@ -9,6 +9,10 @@ class Post < ApplicationRecord
     comments.order(created_at: :desc).limit(5)
   end
 
+  validates :title, presence: true, allow_blank: false, length: { maximum: 250 }
+  validates :comments_counter, numericality: { only_integer: true, greater_than: -1 }
+  validates :likes_counter, numericality: { only_integer: true, greater_than: -1 }
+
   private
 
   def update_users_posts_counter
