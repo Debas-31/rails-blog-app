@@ -4,7 +4,8 @@ RSpec.describe Like, type: :model do
   describe 'Validations For the Like model' do
     before(:each) do
       @user = User.new(id: 1, name: 'Debas', photo: 'image_link', bio: 'full-stack Developer')
-      @post = Post.new(author_id: @user.id, title: 'post 1', text: 'post content', comments_counter: 0, likes_counter: 0)
+      @post = Post.new(author_id: @user.id, title: 'post 1', text: 'post content', comments_counter: 0,
+                       likes_counter: 0)
       @like = Like.new(author_id: @user.id, post_id: @post.id)
     end
 
