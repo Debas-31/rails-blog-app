@@ -1,4 +1,4 @@
-# rails-blog-app : processing data in models
+# Rails-Blog-App : Validations and Model Specs
 >This is a project on Ruby on Rails framework using ruby Gems as a software packages system
 and Set up associations between models using
 using SQL queries with Active Record.
