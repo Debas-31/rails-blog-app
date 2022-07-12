@@ -17,7 +17,23 @@ RSpec.describe 'Users', type: :request do
     it 'response body includes correct placeholder text' do
       expect(response.body).to include('Here is a list of users page')
     end
+  end
 
-    
+  describe 'GET #show' do
+    before(:each) do
+      get '/users/1'
+    end
+
+    it 'GET requests response status was correct'
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'render a correct template'
+      expect(response).to render_template(:show)
+    end
+
+    it 'renders content correctly'
+      expect(response.body).to include('Here is a list of user\'s page')
+    end
   end
 end
