@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   describe 'GET #index' do
-    before(:example) do
+    before(:each) do
       get '/users'
     end
 
@@ -20,7 +20,7 @@ RSpec.describe 'Users', type: :request do
   end
 
   describe 'GET #show' do
-    before(:example) do
+    before(:each) do
       get '/users/1'
     end
 
