@@ -44,5 +44,5 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-[MIT licensed]().
+[MIT licensed](https://github.com/Debas-31/rails-blog-app/blob/Milestone-5-controllers-specs/MIT.md).
 ```
