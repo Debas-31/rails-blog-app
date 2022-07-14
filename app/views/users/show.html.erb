@@ -1,12 +1,12 @@
 <section class="posts_container">
   <div class="card flex">
-    <div class="user_avatar border">
-      <img src="<%= @user.photo %>" alt="User Avatar" width="100%" heigth="100%">
+    <div class="user-image border">
+      <img src="<%= @user.photo %>" alt="User Avatar" width="100%" heigth="100%" />
     </div>
 
     <div class="user-data border">
       <h1><%= @user.name %> </h1>
-      <p>Number of posts: <%= @user.posts_counter%> </p>
+      <p class='number-posts'>Number of posts: <%= @user.posts_counter%> </p>
     </div>
   </div>
   <br>
@@ -34,5 +34,5 @@
       <%end%>
     <%end%>
   </ul>
-  <%= link_to "See all posts", user_posts_path(user_id: @user.id), class: "btn" %>
+  <button type='button'><%= link_to "See all posts", user_posts_path(user_id: @user.id), class: 'btn' %></button>
 </section>
