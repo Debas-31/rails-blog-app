@@ -1,1 +1,29 @@
-<h1>Here is a list of posts for a given user</h1>
+<section class="posts_container">
+  <h2>Welcome to posts page</h2>
+  <div class="user_card">
+    <div class="user_avatar">
+      <img src="<%= @user.photo %>" alt="Users Avatar">
+    </div>
+    <div class="user_details">
+      <h1><%= @user.name %></h1>
+      <p>Number of posts: <%= @user.posts_counter || 0 %></p>
+    </div>
+  </div>
+
+  <div class="posts">
+    <% @user.last_3_posts.each do |post| %>
+      <div class="post_card">
+        <h5><%= post.title %></h5>
+        <p><%= post.text %></p>
+      </div>
+      <div class="comment_card">
+        <% Comment.all.where(post_id: post.id).each do |comment| %>
+          <% user = User.all.find(comment.author_id) %>
+          <p><b><%= user.name %>:</b><%= comment.text %></p>
+        <%end%>
+      </div>
+    <%end%>
+  </div>
+
+  <button type="button">pagination</button>
+</section>
