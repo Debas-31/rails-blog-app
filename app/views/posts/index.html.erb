@@ -1,29 +1,40 @@
-<section class="posts_container">
-  <h2>Welcome to posts page</h2>
-  <div class="user_card">
-    <div class="user_avatar">
-      <img src="<%= @user.photo %>" alt="Users Avatar">
+<h2>Welcome to posts page</h2>
+
+<section>
+  <div class="card flex">
+    <div class="user-image border">
+      <img src=<%= @user.photo %> alt="User Avatar" width="100%" heigth="100%">
     </div>
-    <div class="user_details">
+    <div class="user-data border">
       <h1><%= @user.name %></h1>
-      <p>Number of posts: <%= @user.posts_counter || 0 %></p>
+      <p class="number-posts">Number of posts: <%= @user.posts_counter %></p>
     </div>
   </div>
+</section>
 
-  <div class="posts">
-    <% @user.last_3_posts.each do |post| %>
-      <div class="post_card">
-        <h5><%= post.title %></h5>
-        <p><%= post.text %></p>
-      </div>
-      <div class="comment_card">
-        <% Comment.all.where(post_id: post.id).each do |comment| %>
-          <% user = User.all.find(comment.author_id) %>
-          <p><b><%= user.name %>:</b><%= comment.text %></p>
-        <%end%>
-      </div>
-    <%end%>
-  </div>
-
-  <button type="button">pagination</button>
+<section>
+  <ul>
+    <% @posts.each do |post| %>
+      <%= link_to user_post_path(user_id: post.author_id, id: post.id) do %>
+        <li class="card left">
+          <div class="card">
+            <h2><%= post.title %></h2>
+            <p><%= post.text %></p>
+            <div class="right">
+              <span>Comments: <%= post.comments_counter %></span>
+              <span>Likes: <%= post.likes_counter %> </span>
+            </div>
+          </div>
+          <div class="commets-container">
+            <h4>Comments:</h4>
+            <ul>
+              <% post.last_5_comments.each do |comment| %>
+                <p><%= comment.author.name %>: <%= comment.text %></p>
+              <% end %>
+            </ul>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
 </section>
