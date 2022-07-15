@@ -10,7 +10,10 @@ class LikesController < ApplicationController
 
     if @like.save
       @post = Post.find(params[:post_id])
-      redirect_to user_user_path(user_id: @post.author_id, id: @post.id), alert: 'An error has occurred while creating the like'
+      redirect_to user_post_path(user_id: @post.author_id, id: @post.id)
+    else
+      redirect_to user_post_path(user_id: @post.author_id, id: @post.id),
+                  alert: 'An error has occurred while creating the like'
     end
   end
 end
