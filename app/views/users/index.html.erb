@@ -1,1 +1,16 @@
-<h1>Here is a list of users page</h1>
+<h2 class='users-title'>Welcome to users page</h2>
+<section class="user_container">
+  <% @users.each do |user| %>
+    <%= link_to user do %>
+    <div class="card flex">
+      <div class="user-image border">
+        <img src="<%= user.photo %>" alt="Users Avatar" width="100%" heigth="100%" />
+      </div>
+      <div class="user-data border">
+        <h1><%= user.name %></h1>
+        <p class='number-posts'>Number of posts: <%= user.posts_counter %></p>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</section>

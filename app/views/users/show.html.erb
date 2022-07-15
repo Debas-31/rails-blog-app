@@ -1,1 +1,38 @@
-<h1>Here is a list of user's page</h1>
+<section class="posts_container">
+  <div class="card flex">
+    <div class="user-image border">
+      <img src="<%= @user.photo %>" alt="User Avatar" width="100%" heigth="100%" />
+    </div>
+
+    <div class="user-data border">
+      <h1><%= @user.name %> </h1>
+      <p class='number-posts'>Number of posts: <%= @user.posts_counter%> </p>
+    </div>
+  </div>
+  <br>
+  <div class="card left">
+    <h4>Bio</h4>
+    <p><%= @user.bio %></p>
+  </div>
+</section>
+
+<section>
+  <h1 class='users-title>List of recent posts</h1>
+  <ul>
+    <% @user.last_3_posts.each do |post| %>
+      <%= link_to user_post_path(user_id: post.author_id, id: post.id) do %>
+      <li>
+        <div class="card left">
+          <h4><%= post.title %></h4>
+          <h4><%= post.text %></h4>
+        </div>
+        <div class="right">
+          <span>Comments: <%= post.comments_counter %></span>
+          <span>Likes: <%= post.likes_counter %></span>
+        </div>
+        </li>
+      <%end%>
+    <%end%>
+  </ul>
+  <button type='button'><%= link_to "See all posts", user_posts_path(user_id: @user.id), class: 'btn' %></button>
+</section>
