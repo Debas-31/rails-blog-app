@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post = @user.posts.new(post_params)
     @post.author_id = params[:user_id]
     if @post.save
-      @post.update_users_posts_counter(params[:user_id]) 
+      @post.update_users_posts_counter(params[:user_id])
       redirect_to user_posts_path(@user.id)
       flash[:notice] = 'Your comment was successfully created'
     else
