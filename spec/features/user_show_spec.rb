@@ -1,54 +1,49 @@
 require 'rails_helper'
 
-RSpec.describe 'User show page test', type: :feature do
+RSpec.describe 'User show page', type: :feature do
   before :each do
-    User.destroy_all
-    Post.destroy_all
-    @user = User.create(name: 'Debas', photo: 'https://unsplash.com/6519861_z.jpg', bio: 'A web developer')
-    @user.save
-    @post1 = Post.create(title: 'Post 1', text: 'This is Post 1', user_id: @user.id)
-    @post2 = Post.create(title: 'Post 2', text: 'This is Post 2', user_id: @user.id)
-    @post3 = Post.create(title: 'Post 3', text: 'This is Post 3', user_id: @user.id)
-    @post4 = Post.create(title: 'Post 4', text: 'This is Post 4', user_id: @user.id)
+    @user = User.create(name: 'Debas', photo: 'image_link.jpg', bio: 'Developer from Uganda')
+    @post = Post.create(author: @user, title: 'My title', text: 'My text')
+    (1..5).each { |i| @user.posts.create title: "Post number #{i}", text: "This is my #{i} post!" }
+    @like = Like.create(author: @user, post_id: @post.id)
 
-    visit "/users/#{@user.id}"
+    visit user_path @user.id
   end
 
-  it 'I can see the user\'s profile picture.' do
-    expect(page).to have_xpath("//img[@src = '#{@user.photo}' ]")
+  it 'I can see the users profile picture.' do
+    expect(page.find('img')['src']).to have_content 'image_link.jpg'
   end
 
-  it 'I can see the user\'s username.' do
-    expect(page).to have_content('Debas')
+  it 'Can see the username.' do
+    expect(page).to have_content 'Debas'
   end
 
-  it 'I can see the number of posts the user has written.' do
-    expect(page).to have_content("Number of posts:#{@user.posts.count}")
-    expect(page).to have_content('Number of posts:4')
+  it 'Can see the number of posts the user has written.' do
+    expect(page).to have_content 'posts: 6'
   end
 
-  it 'I can see the user\'s bio.' do
-    expect(page).to have_content('A teacher')
+  it 'can see the users bio' do
+    expect(page).to have_content 'Developer from Uganda'
   end
 
-  it 'I can see the user\'s first 3 posts.' do
-    expect(page).to_not have_content('Post 1')
-    expect(page).to have_content('Post 2')
-    expect(page).to have_content('Post 3')
-    expect(page).to have_content('Post 4')
+  it 'can see the users first 3 posts' do
+    expect(page).to have_content 'Post number 5'
+    expect(page).to have_content 'Post number 4'
+    expect(page).to have_content 'Post number 3'
+    expect(page).to have_no_content 'Post number 2'
   end
 
-  it 'I can see a button that lets me view all of a user\'s posts.' do
-    expect(page).to have_button('See all posts')
+  it 'can see a button that lets me view all of a users posts.' do
+    expect(page.find('a', text: 'See all posts')).to have_content 'See all posts'
   end
 
-  it 'When I click a user\'s post, it redirects me to that post\'s show page.' do
-    visit "/users/#{@user.id}/posts"
-    expect(page).to have_button('view post')
+  it "When I click a user's post, it redirects me to that post's show page." do
+    click_on 'Post number 5'
+    expect(current_path).to eq user_post_path user_id: Post.last.author.id, id: Post.last.id
   end
 
-  it 'I can see a button that lets me view all of a user\'s posts.' do
-    visit "/users/#{@user.id}"
-    expect(page).to have_button('See all posts')
+  it "When I click to see all posts, it redirects me to the user's post's index page." do
+    click_on 'See all posts'
+    expect(current_path).to eq user_posts_path user_id: User.last.id
   end
 end
