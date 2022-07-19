@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
       redirect_to user_post_path(user_id: @post.author_id, id: @post.id)
+      flash[:notice] = 'Your comment was successfully created'
     else
       render :new, alert: 'An error has occured while creating the comment'
     end

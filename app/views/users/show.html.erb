@@ -20,7 +20,7 @@
 </section>
 
 <section>
-  <h1 class='users-title>List of recent posts</h1>
+  <h1 class='users-title'>List of recent posts</h1>
   <ul>
     <% @user.last_3_posts.each do |post| %>
       <%= link_to user_post_path(user_id: post.author_id, id: post.id) do %>
@@ -38,4 +38,5 @@
     <%end%>
   </ul>
   <button type='button'><%= link_to "See all posts", user_posts_path(user_id: @user.id), class: 'btn' %></button>
+  <button type ='button'><%= link_to "See all users", users_path, class: "btn" %></button>
 </section>

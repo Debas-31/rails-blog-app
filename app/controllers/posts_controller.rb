@@ -14,8 +14,8 @@ class PostsController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @post = @user.posts.new(post_params)
-    @post.author_id = params[:user_id]
+    @post = Posts.new(post_params)
+    @post.author = current_user
     if @post.save
       @post.update_users_posts_counter(params[:user_id])
       redirect_to user_posts_path(@user.id)

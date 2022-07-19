@@ -31,7 +31,7 @@
           <div class="commets-container">
             <h4>Comments:</h4>
             <ul>
-              <% post.last_5_comments.each do |comment| %>
+              <% post.last_5_comments.includes(:author).each do |comment| %>
                 <p><%= comment.author.name %>: <%= comment.text %></p>
               <% end %>
             </ul>
@@ -40,4 +40,5 @@
       <% end %>
     <% end %>
   </ul>
+  <%= link_to "See all users", users_path, class: "btn" %>
 </section>
