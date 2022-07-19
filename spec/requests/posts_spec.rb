@@ -23,7 +23,7 @@ RSpec.describe 'Posts', type: :request do
       before(:each) do
         user = User.create(name: 'Debas', photo: 'image_link', bio: 'Developer from Uganda')
         post = Post.create(author: user, title: 'My title', text: 'Some text')
-        get user_post_path(user_id: user.id, id: post.id )
+        get user_post_path(user_id: user.id, id: post.id)
       end
 
       it 'GET requests response status was correct' do

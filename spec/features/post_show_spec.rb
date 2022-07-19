@@ -2,16 +2,15 @@ require 'rails_helper'
 
 RSpec.describe 'Posts show page', type: :feature do
   before(:each) do
-		@user = User.create(name: 'Debas', photo: 'image_link.jpg', bio: 'Developer from Uganda')
+    @user = User.create(name: 'Debas', photo: 'image_link.jpg', bio: 'Developer from Uganda')
     @user1 = User.create(name: 'Aron', photo: 'image_link.jpg', bio: 'Developer from Uganda')
     @post = Post.create(author: @user, title: 'My title', text: 'My text')
     @comment = Comment.create(text: 'My first comment', author: @user, post_id: @post.id)
     @comment = Comment.create(text: 'My second comment', author: @user1, post_id: @post.id)
     @like = Like.create(author: @user, post_id: @post.id)
-		visit user_post_path(user_id: @post.author_id, id: @post.id)
-	end
+    visit user_post_path(user_id: @post.author_id, id: @post.id)
+  end
 
-  
   describe 'Specs for view posts#show' do
     it 'Can see the posts title.' do
       expect(page).to have_content 'My title'
