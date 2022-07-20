@@ -28,6 +28,12 @@ bundle install
 - [LinkedIn](https://www.linkedin.com/in/debas-gebrengus)
 
 
+👤 **Samiullah Bahadur**
+
+- GitHub: [@bahadur](https://github.com/samiullahbahadur)
+- Twitter: [@bahadur](https://twitter.com/bushera_mestofa)
+- LinkedIn: [@bahadur](https://www.linkedin.com/in/samiullah-bahadur/)
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
