@@ -79,4 +79,5 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'devise'
 gem 'rubocop-rails', require: false
