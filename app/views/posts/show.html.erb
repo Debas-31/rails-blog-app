@@ -8,9 +8,11 @@
         <span>Likes: <%= @post.likes_counter %></span>
       </div>
       <div class="right my-1 flex justify-end px-1">
-        <%= link_to "Add comment", new_user_post_comment_path(user_id: @post.author_id, post_id: @post.id), class: "btn" %>
-        <%= form_with model: @like, url: user_post_likes_path(post_id: @post.id) do |form| %>
-          <%= form.submit "Add Like", class: "btn" %>
+        <% if user_signed_in? %>
+          <%= link_to "Add comment", new_user_post_comment_path(user_id: @post.author_id, post_id: @post.id ), class: "btn" %>
+          <%= form_with model: @like, url: user_post_likes_path(post_id: @post.id) do |form| %>
+            <%= form.submit "Add Like", class: "btn" %>
+          <% end %>
         <% end %>
       </div>
     </div>

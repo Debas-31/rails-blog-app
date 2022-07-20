@@ -8,7 +8,9 @@
       <h1><%= @user.name %> </h1>
       <p class='number-posts'>Number of posts: <%= @user.posts_counter%> </p>
       <div class="right">
-      <%= link_to "Add a post", new_user_post_path(user_id: @user.id), class: "btn right" %>
+      <% if user_signed_in? %>
+        <%= link_to "Add a post", new_user_post_path(user_id: @user.id), class: "btn right" %>
+      <% end %>
       </div>
     </div>
   </div>
