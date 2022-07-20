@@ -124,3 +124,45 @@ a {
 .commets-container {
   padding: 10px;
 }
+
+nav {
+  width: 100%;
+  top: 0;
+  background: #32393f;
+  color: white;
+  padding: 20px;
+  z-index: 10;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.nav-link {
+  list-style: none;
+  margin-left: 5px;
+}
+
+.nav-link a {
+  padding: 10px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+.logo a {
+  padding: 10px;
+  font-size: 32px;
+  text-decoration: none;
+  color: #fff;
+}

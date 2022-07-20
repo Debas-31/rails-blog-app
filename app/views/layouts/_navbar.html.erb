@@ -1,0 +1,18 @@
+  <nav>
+    <div class="container nav">
+      <div class="heading">
+        <h2 class="logo"><%= link_to "MY BLOG", users_path %></h2>
+      </div>
+      <ul class="nav-ul">
+        <li class="nav-link"><%= link_to "Users", users_path %></li>
+        <% if user_signed_in? %>
+          <li class="nav-link"><%= link_to "My profile", user_path(current_user.id) %></li>
+          <li class="nav-link"><%= link_to "My posts", user_posts_path(current_user.id) %></li>
+          <li class="nav-link"><%= link_to "Create a post", new_user_post_path(current_user.id) %></li>
+          <li class="nav-link"><%= link_to "Sign out", destroy_user_session_path, :method => 'delete'%></li>
+        <% else %>
+          <li class="nav-link"><%= link_to "Sign in", new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
