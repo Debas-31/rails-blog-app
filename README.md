@@ -1,4 +1,4 @@
-# Rails-Blog-App : Add Forms
+# Rails-Blog-App : Add devise
 >This is a project on the Ruby on Rails framework using ruby Gems as a software packages system, Set up associations between models using SQL queries with Active Record, used validation for models, write unit test models and tests using Rspec.
 
 ## prerequisites
@@ -27,6 +27,12 @@ bundle install
 - [Twitter](https://twitter.com/DEBSH76956492)
 - [LinkedIn](https://www.linkedin.com/in/debas-gebrengus)
 
+
+👤 **Samiullah Bahadur**
+
+- GitHub: [@bahadur](https://github.com/samiullahbahadur)
+- Twitter: [@bahadur](https://twitter.com/bushera_mestofa)
+- LinkedIn: [@bahadur](https://www.linkedin.com/in/samiullah-bahadur/)
 
 ## 🤝 Contributing
 
