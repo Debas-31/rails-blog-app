@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: %i[create destroy]
-  
+
   def new
     @comment = Comment.new
   end
@@ -19,6 +19,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @author = @post.author
+    @author.posts_counter -= 1
+    @post.destroy!
+    redirect_to user_posts_path(id: @author.id), notice: 'Post was deleted successfully!'
+  end
+  
   private
 
   def comment_params

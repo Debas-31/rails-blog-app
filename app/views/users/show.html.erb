@@ -40,6 +40,6 @@
       <%end%>
     <%end%>
   </ul>
-  <button type='button'><%= link_to "See all posts", user_posts_path(user_id: @user.id), class: 'btn' %></button>
-  <button type ='button'><%= link_to "See all users", users_path, class: "btn" %></button>
+  <%= link_to "See all posts", user_posts_path(user_id: @user.id), class: 'btn' %>
+  <%= link_to "See all users", users_path, class: "btn" %>
 </section>
