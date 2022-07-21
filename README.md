@@ -34,6 +34,12 @@ bundle install
 - Twitter: [@bahadur](https://twitter.com/bushera_mestofa)
 - LinkedIn: [@bahadur](https://www.linkedin.com/in/samiullah-bahadur/)
 
+👤 **Sangwa Didier**
+
+- GitHub: [Didier Sangwa](https://github.com/sangwa7)
+- Twitter: [@sangwa_7](https://twitter.com/sangwa_7)
+- LinkedIn: [Didier Sangwa](https://www.linkedin.com/in/didier-sangwa)
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!

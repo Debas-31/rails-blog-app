@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource except: :create
+
   def new
     @comment = Comment.new
   end
@@ -15,6 +17,14 @@ class CommentsController < ApplicationController
     else
       render :new, alert: 'An error has occured while creating the comment'
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @author = @post.author
+    @author.posts_counter -= 1
+    @post.destroy!
+    redirect_to user_posts_path(id: @author.id), notice: 'Post was deleted successfully!'
   end
 
   private
