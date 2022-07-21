@@ -85,6 +85,18 @@ a {
   justify-content: flex-end;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
 .user-image {
   max-width: 120px;
   margin: 10px;
@@ -100,6 +112,11 @@ a {
 
 .border {
   border: 1px solid black;
+}
+
+.bg-green {
+  background: #0d7d4d;
+  color: #f1ecea;
 }
 
 .number-posts {
@@ -118,6 +135,20 @@ a {
   text-decoration: none;
   padding: 0.5rem 1rem;
   margin: 0.01% 50%;
+  cursor: pointer;
+}
+
+.btn-del {
+  border: 0;
+  border-radius: 0.25rem;
+  background: #df5a5a;
+  color: white;
+  font-size: 1rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
   cursor: pointer;
 }
 

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create destroy]
+  load_and_authorize_resource except: :create
 
   def index
     @user = User.find(params[:user_id])
