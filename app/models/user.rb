@@ -13,7 +13,7 @@ class User < ApplicationRecord
   def admin?
     role == 'admin'
   end
-  
+
   def last_3_posts
     posts.order(created_at: :desc).limit(3)
   end

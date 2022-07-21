@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
     @post.destroy!
     redirect_to user_posts_path(id: @author.id), notice: 'Post was deleted successfully!'
   end
-  
+
   private
 
   def comment_params
