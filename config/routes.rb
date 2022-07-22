@@ -16,8 +16,8 @@ Rails.application.routes.draw do
 
   post "/api/register", to: 'authentication#register'
   post '/api/login', to: 'authentication#login'
-  get '/api/posts', to: 'posts#posts'
-  get '/api/comments', to: 'comments#comments'
+  get '/api/users/:user_id/posts', to: 'posts#posts'
+  get '/api/posts/:id/comments', to: 'comments#comments'
   post '/api/comments', to: 'comments#add_comment'
   
   resources :users, only: [:index, :show] do
