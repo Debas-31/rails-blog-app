@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   post '/api/login', to: 'authentication#login'
   get '/api/users/:user_id/posts', to: 'posts#posts'
   get '/api/posts/:id/comments', to: 'comments#comments'
-  post '/api/comments', to: 'comments#add_comment'
+  post '/api/users/:user_id/posts/:id/add_comments', to: 'comments#add_comment'
   
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :show, :new, :create, :destroy] do
