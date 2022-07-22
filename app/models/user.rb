@@ -17,4 +17,9 @@ class User < ApplicationRecord
   def last_3_posts
     posts.order(created_at: :desc).limit(3)
   end
+
+  def authenticate(password)
+    valid_password?(password)
+  end
+  
 end
