@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
   load_and_authorize_resource except: :create
 
+  skip_before_action :authenticate_request
+  before_action :authenticate_request, only: [:add_comment]
+  protect_from_forgery with: :null_session, only: [:add_comment]
+
   def new
     @comment = Comment.new
   end
@@ -27,6 +31,26 @@ class CommentsController < ApplicationController
     redirect_to user_posts_path(id: @author.id), notice: 'Post was deleted successfully!'
   end
 
+  def comments
+    post = Post.find(params[:id])
+
+    respond_to do |format|
+      format.json { render json: post.comments }
+    end
+  end
+
+  def add_comment
+    comment = Comment.new(author: @curr_user, post_id: params[:post_id], text: params[:text])
+
+    respond_to do |format|
+      if comment.save
+        format.json { render json: comment }
+      else
+        format.json { render json: { success: false, message: comment.errors.full_messages } }
+      end
+    end
+  end
+  
   private
 
   def comment_params
