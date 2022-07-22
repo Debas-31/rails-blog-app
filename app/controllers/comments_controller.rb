@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
-  load_and_authorize_resource except: :create
-
+  before_action :authenticate_user!, only: %i[create destroy]
   skip_before_action :authenticate_request
   before_action :authenticate_request, only: [:add_comment]
   protect_from_forgery with: :null_session, only: [:add_comment]
@@ -50,7 +49,7 @@ class CommentsController < ApplicationController
       end
     end
   end
-  
+
   private
 
   def comment_params

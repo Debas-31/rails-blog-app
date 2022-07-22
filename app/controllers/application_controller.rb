@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include JsonWebToken
+  
   protect_from_forgery with: :exception
 
   before_action :update_allowed_parameters, if: :devise_controller?

@@ -1,6 +1,7 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!, only: %i[create destroy]
   skip_before_action :authenticate_request
-  
+
   def new
     @like = Like.new
   end

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  load_and_authorize_resource except: :create
+  before_action :authenticate_user!, only: %i[create destroy]
   skip_before_action :authenticate_request
 
   def index
@@ -16,9 +16,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
     @post = Posts.new(post_params)
     @post.author = current_user
+    
     if @post.save
       @post.update_users_posts_counter(params[:user_id])
       redirect_to user_posts_path(@user.id)
