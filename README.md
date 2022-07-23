@@ -31,7 +31,7 @@ bundle install
 👤 **Samiullah Bahadur**
 
 - GitHub: [@bahadur](https://github.com/samiullahbahadur)
-- Twitter: [@bahadur](https://twitter.com/bushera_mestofa)
+
 - LinkedIn: [@bahadur](https://www.linkedin.com/in/samiullah-bahadur/)
 
 👤 **Sangwa Didier**
