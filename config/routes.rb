@@ -13,6 +13,12 @@ Rails.application.routes.draw do
       resources :posts, only: [:index, :show]
     end
 =end
+
+  post "/api/register", to: 'authentication#register'
+  post '/api/login', to: 'authentication#login'
+  get '/api/users/:user_id/posts', to: 'posts#posts'
+  get '/api/posts/:id/comments', to: 'comments#comments'
+  post '/api/posts/:id/comments', to: 'comments#add_comment'
   
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :show, :new, :create, :destroy] do
