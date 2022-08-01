@@ -1,4 +1,4 @@
-# Rails-Blog-App : Add devise
+# Rails-Blog-App : Add API Documentation
 >This is a project on the Ruby on Rails framework using ruby Gems as a software packages system, Set up associations between models using SQL queries with Active Record, used validation for models, write unit test models and tests using Rspec.
 
 ## prerequisites
